@@ -7,15 +7,15 @@ module.exports = function test(){
     'use strict';
     const schema = objectSchema(
         {
-            oi:stringSchema({min:5}),
-            numero:numberSchema({preci:2}),
-            logico:booleanSchema({notNull:false}),
-            lista:arraySchema({
-                schema:objectSchema({
-                    chave:stringSchema({
-                        max:3,
-                        min:0,
-                        notNull:false
+            oi: stringSchema({min:5}),
+            numero: numberSchema({preci:2}),
+            logico: booleanSchema({notNull:false}),
+            lista: arraySchema({
+                schema: objectSchema({
+                    chave: stringSchema({
+                        max: 3,
+                        min: 0,
+                        notNull: false
                     })
                 },
                 undefined,
