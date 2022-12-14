@@ -11,16 +11,29 @@ module.exports = function test(){
             numero: numberSchema({preci:2}),
             logico: booleanSchema({notNull:false}),
             lista: arraySchema({
-                schema: objectSchema({
-                    chave: stringSchema({
-                        max: 3,
-                        min: 0,
-                        notNull: false
-                    })
-                },
-                undefined,
-                true
-            )})
+                schema:[
+                    objectSchema({
+                        chave: stringSchema({
+                            max: 3,
+                            min: 0,
+                            notNull: false
+                        })
+                    },
+                    undefined,
+                    true
+                    ),
+                    objectSchema({
+                        chave: stringSchema({
+                            max: 3,
+                            min: 1,
+                            notNull: false
+                        })
+                    },
+                    undefined,
+                    true
+                    ),
+                ]
+            })
         });
-    console.log('object:' +JSON.stringify( schema({oi:'t14t3',numero:2.4545,lista:[{}]},'objeto')));
+    console.log('object:' +JSON.stringify( schema({oi:'t14t3',numero:2.4545,lista:[{},{}]},'objeto')));
 };

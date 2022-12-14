@@ -39,6 +39,10 @@
                         value.forEach((element,index) => {
                             array.push(schema(element,`${path}[${index}]`));
                         });
+                if(Array.prototype.isPrototypeOf(schema))
+                        value.forEach((element,index) => {
+                            array.push(schema[index % value.length](element,`${path}[${index}]`));
+                        });
             }else if(notNull)
                 throw {messenger:`esta propriedade é obrigaroria. in propert:${path}`};
             return array;
