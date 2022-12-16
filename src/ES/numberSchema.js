@@ -10,7 +10,7 @@
             throw {messenger:`esta propriedade é obrigaroria. in propert:${path}`};
         else{
             if(typeof value !== 'number')
-                throw {messenger:`incoerencia de tipo, tipo esperado: string. in propert:${path}`};
+                throw {messenger:`incoerencia de tipo, tipo esperado: number valorpassado (${value}) é do tipo ${typeof value}. in propert:${path}`};
             if(min !== undefined && min > value)
                 throw {
                     messenger:
