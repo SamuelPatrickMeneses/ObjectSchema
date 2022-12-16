@@ -6,11 +6,12 @@
     const max = props.max;
     const preci = props.preci;
     const out = (value,path) => {
+ 
         if(notNull && (value === undefined || value === null))
             throw {messenger:`esta propriedade é obrigaroria. in propert:${path}`};
         else{
-            if(typeof value !== 'number')
-                throw {messenger:`incoerencia de tipo, tipo esperado: number valorpassado (${value}) é do tipo ${typeof value}. in propert:${path}`};
+            if(isNaN(value))
+                throw {messenger:`incoerencia de tipo, ${value} é NaN, in propert:${path}`};
             if(min !== undefined && min > value)
                 throw {
                     messenger:
